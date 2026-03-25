@@ -1,0 +1,28 @@
+{
+  "id": "czechtranslationsimplecover5e",
+  "title": "CzechTranslationSimpleCover5e",
+  "version": "1.2.0",
+  "compatibility": {
+    "minimum": "13.351",
+    "verified": "13.351"
+  },
+  "description": "Český překlad modulu Simple Cover 5e.",
+  "authors": [
+    {
+      "name": "Lethrendis",
+      "email": "michmildub@seznam.cz",
+      "discord": "Lethrendis",
+      "flags": {}
+    }
+  ],
+  "languages": [
+      {
+      "lang": "cs",
+      "name": "Čeština",
+      "path": "lang/cs.json"
+    }
+  ],
+  "url": "https://raw.githubusercontent.com/Lethrendis/CzechTranslationSimpleCover5e/main/module.json",
+  "manifest": "https://raw.githubusercontent.com/Lethrendis/CzechTranslationSimpleCover5e/main/module.json",
+  "download": "https://github.com/Lethrendis/CzechTranslationSimpleCover5e/archive/refs/heads/main.zip"
+}
