@@ -1,0 +1,184 @@
+{
+  "SIMPLE_COVER_5E": {
+    "Settings": {
+      "CoverScope": {
+        "Name": "Rozsah odstranění krytu",
+        "Hint": "Zvol, které tokeny jsou ovlivněny při odstranění krytu: všechny na scéně, pouze účastníci boje, nebo pouze tokeny vlastněné hráči.",
+        "Options": {
+          "All": "Všechny tokeny na scéně",
+          "Combatants": "Pouze účastníci boje",
+          "Player": "Pouze tokeny vlastněné hráči"
+        }
+      },
+      "OnlyInCombat": {
+        "Name": "Uplatňovat kryt pouze v boji?",
+        "Hint": "Po zaškrtnutí bude automatický výpočet krytu probíhat pouze během aktivního bojového střetnutí."
+      },
+      "RemoveOnCombat": {
+        "Name": "Odstranit kryt při aktualizacích boje?",
+        "Hint": "Po zaškrtnutí se bude automaticky odstraňovat stav krytu při změnách v boji (tah/kolo/iniciativa) s ohledem na zvolený rozsah odstranění krytu."
+      },
+      "RemoveOnMove": {
+        "Name": "Odstraňovat kryt při pohybu tokenu?",
+        "Hint": "Po zaškrtnutí se bude automaticky odstraňovat stav krytu, když se token během aktivního boje pohne, s ohledem na zvolený rozsah odstranění krytu."
+      },
+      "losCheck": {
+        "Name": "Kontrola linie výhledu přes zdi",
+        "Hint": "Po zaškrtnutí bude modul kontrolovat i linii výhledu přes zdi. Může to být použito v případech, kdy je cíl plně blokován zdí."
+      },
+      "coverHints": {
+        "Name": "Zobrazovat poznámky o krytu v dialozích?",
+        "Hint": "Po zaškrtnutí bude modul v dialozích hodů na útok a při záchranách zobrazovat aktuální stav krytu."
+      },
+      "CreaturesHalfOnly": {
+        "Name": "Omezit kryt od bytostí na poloviční kryt?",
+        "Hint": "Po zaškrtnutí mohou bytosti poskytnout maximálně poloviční kryt. Jakmile je alespoň jedna linie blokována čistě bytostmi, cíl získá poloviční kryt, ale nikdy tříčtvrteční kryt. Zdi se i nadále řídí standardními pravidly z PPJ."
+      },
+      "IgnoreFriendly": {
+        "Name": "Ignorovat kryt poskytovaný přátelskými tokeny?",
+        "Hint": "Po zaškrtnutí budou při kontrole krytu ignorovány všechny tokeny přátelské útočníkovi."
+      },
+      "IgnoreAllAOE": {
+        "Name": "Ignorovat kryt proti plošným efektům?",
+        "Hint": "Po zaškrtnutí bude přeskočena kontrola krytu pokaždé, když aktivita definuje jakoukoli plošnou šablonu. Pokud je přítomna šablona, pro daný hod se žádný kryt nepočítá."
+      },
+      "IgnoreDistanceAOE": {
+        "Name": "Ignorovat kryt proti plošným efektům na dálku?",
+        "Hint": "Po zaškrtnutí bude přeskočena kontrola krytu u aktivit vytvářejících oblast na dálku (např. Ohnivá koule). Platí, pokud má aktivita dostřel větší než 1 a používá plošnou šablonu s jednotkami dosahu jinými než na sebe/dotyk/zvláštní."
+      },
+      "IgnoreDistanceSpace": {
+        "Name": "Ignorovat kryt při cílení prostoru na dálku?",
+        "Hint": "Po zaškrtnutí bude přeskočena kontrola krytu, když aktivita cílí prostor na dálku (dosah > 1 a typ ovlivnění je \"plocha\"). To se běžně používá u vyvolávacích schopností/kouzel, kde je skutečný útok/efekt vyhodnocen z vyvolané bytosti. Kryt by měl být vyhodnocován z pozice vyvolané bytosti, nikoli ze zdrojové schopnosti/kouzla."
+      },
+      "Hover": {
+        "Name": "Zobrazení krytu po přejetí myší",
+        "Hint": "Určí, zda a jak se pp přejetí myší nad tokenem zobrazí informace o krytu a vzdálenosti.",
+        "Options": {
+          "Off": "Vypnout",
+          "CoverOnly": "Pouze ikona krytu",
+          "CoverAndDistance": "Ikona krytu a vzdálenost"
+        }
+      },
+      "HoverLabelPosition": {
+        "Name": "Pozice popisku po přejetí myší",
+        "Hint": "Zvol, kde je popisek po přejetí myší vzhledem k cílovému tokenu ukotven.",
+        "Options": {
+          "Above": "Nad tokenem",
+          "On": "Na středu tokenu",
+          "Below": "Pod tokenem"
+        }
+      },
+      "HoverLabelYOffset": {
+        "Name": "Svislý posun po přejetí (Y)",
+        "Hint": "Dodatečný svislý posun (v pixelech) aplikovaný na pozici popisku po přejetí myší. Kladné hodnoty posunou popisek dolů, záporné nahoru."
+      },
+      "HoverLabelXOffset": {
+        "Name": "Vodorovný posun po přejetí (X)",
+        "Hint": "Dodatečný vodorovný posun (v pixelech) aplikovaný na pozici popisku po přejetí myší. Kladné hodnoty posunou popisek doprava, záporné doleva."
+      },
+      "GridlessDistanceMode": {
+        "Name": "Režim vzdálenosti bez mřížky",
+        "Hint": "Zvol, jak se měří vzdálenost ve scénách bez mřížky: střed ke středu, nebo hrana k hraně.",
+        "Options": {
+          "CenterCenter": "Střed ke středu",
+          "EdgeEdge": "Hrana k hraně",
+          "EdgeToCenter": "Hrana zdroje ke středu cíle"
+        }
+      },
+      "GridlessTokenShape": {
+        "Name": "Tvar tokenu bez mřížky",
+        "Hint": "Určí, jak se tokeny ve scénách bez mřížky aproximují pro vzdálenost a kryt: jako čtvercové půdorysy, nebo jako kruhové půdorysy s rozložením více kružnic u větších bytostí.",
+        "Options": {
+          "Square": "Čtvercový",
+          "Circle": "Kruhový"
+        }
+      },
+      "CreaturesProne": {
+        "Name": "Úprava výšky ležící bytosti",
+        "Hint": "Určí, jak jsou ležící bytosti zohledňovány při vytváření jejich 3D hranolu pro výpočty krytu. Pokud je aktivní modul \"Wall Height\", volba \"Vyhodnocovat jako o jednu kategorii velikosti menší\" se nahradí poloviční výškou.",
+        "Options": {
+          "None": "Žádná",
+          "LowerSize": "Vyhodnocovat jako o jednu kategorii velikosti menší",
+          "Half": "Považovat výšku za poloviční"
+        }
+      },
+      "Debug": {
+        "Name": "Zobrazovat ladicí linie?",
+        "Hint": "Po zaškrtnutí bude při výpočtu krytu mezi tokeny vykreslovat pomocné linie (pro ladění/řešení problémů)."
+      },
+      "LibraryMode": {
+        "Name": "[Pozor] Zapnout režim knihovny?",
+        "Hint": "Zaškrtnutí režimu knihovny deaktivuje automatizační funkce Simple Cover 5e. Zaškrtni jej pouze v případě, že režim knihovny výslovně potřebuješ, nebo pokud automatizaci zajišťuje jiný modul (např. Midi-QoL). Některé moduly mohou režim knihovny zapnout automaticky. Dokumentace: https://github.com/Kapuzenjoe/simplecover5e/wiki/API-(Library-Mode)."
+      },
+      "CreatureHeights": {
+        "Name": "Výchozí výšky bytostí",
+        "Hint": "Výchozí výšky bytostí (v jednotkách mřížky) podle kategorií velikosti používané pro 3D vyhodnocení krytu. Pokud je aktivní modul \"Wall Height\", budou se tyto výchozí hodnoty ignorovat a výšky se berou z tohoto modulu."
+      },
+      "insetAttacker": {
+        "Name": "Odsazení útočníka (px)",
+        "Hint": "Posune vzorkovací body útočníka ze surového rohu směrem ke středu tokenu (výchozí: 1; max: 30 % aktuální velikosti mřížky)."
+      },
+      "insetTarget": {
+        "Name": "Odsazení cíle (px)",
+        "Hint": "Posune vzorkovací body cíle ze surového rohu směrem ke středu tokenu (výchozí: 3; max: 30 % aktuální velikosti mřížky)."
+      },
+      "insetOccluder": {
+        "Name": "Odsazení zakrývajícího objektu (px)",
+        "Hint": "Zmenší ohraničující rámeček zakrývajícího objektu pro bytosti (výchozí: 3; max: 30 % aktuální velikosti mřížky)."
+      },
+      "HeightsMenu": {
+        "Name": "Nastavení výšek bytostí",
+        "Label": "Nastavit výšky bytostí",
+        "Hint": "Uprav výchozí výšky (v jednotkách mřížky) pro každou velikost bytosti používané při výpočtu krytu. Pokud je aktivní modul \"Wall Height\", budou se tyto výchozí hodnoty ignorovat a výšky se berou z tohoto modulu.",
+        "Legend": "Výšky bytostí",
+        "BodyHint": "Nastav výchozí výšku (v jednotkách mřížky) pro každou velikost bytosti. Tyto hodnoty se používají při zacházení s tokeny jako s 3D hranoly pro vyhodnocení krytu. Pokud je aktivní modul \"Wall Height\", budou se tyto výchozí hodnoty ignorovat a výšky se berou z tohoto modulu.",
+        "Buttons": {
+          "Save": "Uložit",
+          "Reset": "Obnovit"
+        }
+      },
+      "VariantMenu": {
+        "Name": "Nastavení pravidel krytu a měření",
+        "Label": "Pravidla krytu a měření",
+        "Hint": "Nastaví, jak Simple Cover 5e počítá kryt a měří vzdálenost ve scénách.",
+        "Buttons": {
+          "Save": "Uložit"
+        },
+        "Groups": {
+          "General": "Pravidla krytu",
+          "Measurement": "Pravidla měření",
+          "Engine": "Pravidla výpočetního jádra"
+        }
+      },
+      "AutomationMenu": {
+        "Name": "Nastavení automatizace krytu",
+        "Label": "Automatizace krytu",
+        "Hint": "Nastavení automatizace krytu a toho, jaké informace se zobrazují v dialozích hodů. Pokud je zapnutý režim knihovny, veškerá automatizace se vypne a toto menu se uzamkne.",
+        "Groups": {
+          "General": "Automatizace"
+        },
+        "LibraryModeWarning": "Režim knihovny je aktivní. Funkce automatizace jsou vypnuty. Viz wiki: https://github.com/Kapuzenjoe/simplecover5e/wiki/API-(Library-Mode). Některé moduly mohou režim knihovny zapínat automaticky (např. Midi-QoL)."
+      }
+    },
+    "Dialog": {
+      "Legend": "Poznámky"
+    },
+    "CoverHint": {
+      "Attack": {
+        "half": "Cíl získává díky <strong>polovičnímu krytu</strong> bonus <strong>+2</strong> k OČ.",
+        "threeQuarters": "Cíl získává díky <strong>tříčtvrtečnímu krytu</strong> bonus <strong>+5</strong> k OČ.",
+        "total": "Cíl je <strong>plně krytý</strong> a nelze jej přímo cílit."
+      },
+      "Save": {
+        "half": "Díky <strong>polovičnímu krytu</strong> získáváš bonus <strong>+2</strong> k této záchraně Obratností.",
+        "threeQuarters": "Díky <strong>tříčtvrtečnímu krytu</strong> získáváš bonus <strong>+5</strong> k této záchraně Obratností.",
+        "total": "V <strong>plném krytu</strong> tě nelze přímo zacílit."
+      }
+    },
+    "Controls": {
+      "ClearCover": {
+        "Title": "Odstranit efekty krytu"
+      }
+    }
+  }
+}
