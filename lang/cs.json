@@ -28,7 +28,16 @@
       },
       "coverHints": {
         "Name": "Zobrazovat poznámky o krytu v dialozích?",
-        "Hint": "Po zaškrtnutí bude modul v dialozích hodů na útok a při záchranách zobrazovat aktuální stav krytu."
+        "Hint": "Zvol, kdy má modul zobrazovat poznámky o krytu v dialozích hodů na útok a záchrany.",
+        "Options": {
+          "None": "Nikdy",
+          "Conditional": "Pouze, když se kryt uplatní",
+          "Always": "Vždy"
+        }
+      },
+      "coverHintsGmMessage": {
+        "Name": "Zpráva v chatu pro PJ při změně krytu",
+        "Hint": "Odešle zprávu do chatu PJ, když je stav krytu ručně změněn v dialogu hodu."
       },
       "CreaturesHalfOnly": {
         "Name": "Omezit kryt od bytostí na poloviční kryt?",
@@ -78,19 +87,19 @@
       },
       "GridlessDistanceMode": {
         "Name": "Režim vzdálenosti bez mřížky",
-        "Hint": "Zvol, jak se měří vzdálenost ve scénách bez mřížky: střed ke středu, nebo hrana k hraně.",
+        "Hint": "Zvol, jak se měří vzdálenost ve scénách bez mřížky. \"Vzdálenost mezi tokeny\" měří nejkratší vzdálenost mezi okraji tokenů. \"Vzdálenost k cílovému poli\" odpovídá výsledku na čtvercové/hexové mřížce s globálním nastavením diagonál \"Přesné (√2)\".",
         "Options": {
-          "CenterCenter": "Střed ke středu",
-          "EdgeEdge": "Hrana k hraně",
-          "EdgeToCenter": "Hrana zdroje ke středu cíle"
+          "EdgeEdge": "Vzdálenost mezi tokeny",
+          "EdgeToCenter": "Vzdálenost k cílovému poli"
         }
       },
       "GridlessTokenShape": {
-        "Name": "Tvar tokenu bez mřížky",
-        "Hint": "Určí, jak se tokeny ve scénách bez mřížky aproximují pro vzdálenost a kryt: jako čtvercové půdorysy, nebo jako kruhové půdorysy s rozložením více kružnic u větších bytostí.",
+        "Name": "Výchozí tvar tokenu bez mřížky",
+        "Hint": "Po nastavení budou všechny tokeny ve scénách bez mřížky automaticky nastaveny na zvolený tvar.",
         "Options": {
-          "Square": "Čtvercový",
-          "Circle": "Kruhový"
+          "None": "Beze změn",
+          "Square": "Obdélník",
+          "Circle": "Elipsa"
         }
       },
       "CreaturesProne": {
@@ -124,7 +133,16 @@
       },
       "insetOccluder": {
         "Name": "Odsazení zakrývajícího objektu (px)",
-        "Hint": "Zmenší ohraničující rámeček zakrývajícího objektu pro bytosti (výchozí: 3; max: 30 % aktuální velikosti mřížky)."
+        "Hint": "Zmenší ohraničující rámeček zakrývajícího objektu pro bytosti (výchozí: 6; max: 30 % aktuální velikosti mřížky)."
+      },
+      "FilteredTargetPoints": {
+        "Name": "Filtrované cílové body",
+        "Hint": "Určuje, jak body cíle odstraněné ořezem tokenu ovlivňují vyhodnocení krytu. Výchozí: \"Považovat za blokované\". \"Dynamický práh\" zachovává chování polovičního krytu, ale udělí tříčtvrteční kryt, pokud jsou blokovány alespoň tři čtvrtiny zbývajících linií.",
+        "Options": {
+          "Blocked": "Považovat za blokované",
+          "Clear": "Považovat za neblokované",
+          "Dynamic": "Dynamický práh"
+        }
       },
       "HeightsMenu": {
         "Name": "Nastavení výšek bytostí",
@@ -160,24 +178,101 @@
         "LibraryModeWarning": "Režim knihovny je aktivní. Funkce automatizace jsou vypnuty. Viz wiki: https://github.com/Kapuzenjoe/simplecover5e/wiki/API-(Library-Mode). Některé moduly mohou režim knihovny zapínat automaticky (např. Midi-QoL)."
       }
     },
+    "Controls": {
+      "ClearCover": {
+        "Title": "Odstranění efektů krytu"
+      }
+    },
     "Dialog": {
       "Legend": "Poznámky"
     },
     "CoverHint": {
       "Attack": {
-        "half": "Cíl získává díky <strong>polovičnímu krytu</strong> bonus <strong>+2</strong> k OČ.",
-        "threeQuarters": "Cíl získává díky <strong>tříčtvrtečnímu krytu</strong> bonus <strong>+5</strong> k OČ.",
-        "total": "Cíl je <strong>plně krytý</strong> a nelze jej přímo cílit."
+        "none": "{tokenName} nemá žádný kryt.",
+        "half": "{tokenName} získává <strong>+2</strong> k OČ z <strong>polovičního krytu</strong>.",
+        "threeQuarters": "{tokenName} získává <strong>+5</strong> k OČ z <strong>tříčtvrtečního krytu</strong>.",
+        "total": "{tokenName} má <strong>plný kryt</strong> a nelze na něj přímo cílit."
       },
       "Save": {
+        "none": "Nemáš žádný kryt.",
         "half": "Díky <strong>polovičnímu krytu</strong> získáváš bonus <strong>+2</strong> k této záchraně Obratností.",
         "threeQuarters": "Díky <strong>tříčtvrtečnímu krytu</strong> získáváš bonus <strong>+5</strong> k této záchraně Obratností.",
-        "total": "V <strong>plném krytu</strong> tě nelze přímo zacílit."
-      }
+        "total": "Máš <strong>plný kryt</strong> a nelze tě přímo zacílit."
+      },
+      "CoverModeChanged": "Režim krytu změněn",
+      "CoverModeDesired": "Vypočteno: {desiredCover}",
+      "CoverModeNew": "Nastaveno: {newMode}"
     },
-    "Controls": {
-      "ClearCover": {
-        "Title": "Odstranit efekty krytu"
+    "Flags": {
+      "ignoreAllCover": {
+        "all": {
+          "Name": "Ignorace jakékoliv krytu (vše)",
+          "Hint": "Útočný příznak: Ignoruje jakýkoliv kryt cíle pro útoky i efekty záchran."
+        },
+        "attack": {
+          "Name": "Ignorace jakékoliv krytu (útoky)",
+          "Hint": "Útočný příznak: Ignoruje jakýkoliv kryt cíle pouze pro útoky."
+        },
+        "save": {
+          "Name": "Ignorace jakékoliv krytu (záchrany)",
+          "Hint": "Útočný příznak: Ignoruje jakýkoliv kryt cíle pouze pro efekty záchran."
+        }
+      },
+      "ignoreHalfCover": {
+        "all": {
+          "Name": "Ignorace polovičního krytu (vše)",
+          "Hint": "Útočný příznak: Ignoruje poloviční kryt pro útoky i efekty záchran."
+        },
+        "attack": {
+          "Name": "Ignorace polovičního krytu (útoky)",
+          "Hint": "Útočný příznak: Ignoruje poloviční kryt pouze pro útoky."
+        },
+        "save": {
+          "Name": "Ignorace polovičního krytu (záchrany)",
+          "Hint": "Útočný příznak: Ignoruje poloviční kryt pouze pro efekty záchran."
+        }
+      },
+      "ignoreThreeQuartersCover": {
+        "all": {
+          "Name": "Ignorace až tříčtvrtečního krytu (vše)",
+          "Hint": "Útočný příznak: Ignoruje poloviční i tříčtvrteční kryt pro útoky i efekty záchran."
+        },
+        "attack": {
+          "Name": "Ignorace až tříčtvrtečního krytu (útoky)",
+          "Hint": "Útočný příznak: Ignoruje poloviční i tříčtvrteční kryt pouze pro útoky."
+        },
+        "save": {
+          "Name": "Ignorace až tříčtvrtečního krytu (záchrany)",
+          "Hint": "Útočný příznak: Ignoruje poloviční i tříčtvrteční kryt pouze pro efekty záchran."
+        }
+      },
+      "upgradeCover": {
+        "all": {
+          "Name": "Zvýšení krytu (vše)",
+          "Hint": "Obranný příznak: Zvyšuje aktuální kryt proti útokům i efektům záchran."
+        },
+        "attack": {
+          "Name": "Zvýšení krytu (útoky)",
+          "Hint": "Obranný příznak: Zvyšuje aktuální kryt pouze proti útokům."
+        },
+        "save": {
+          "Name": "Zvýšení krytu (záchrany)",
+          "Hint": "Obranný příznak: Zvyšuje aktuální kryt pouze proti efektům záchran."
+        }
+      },
+      "downgradeCover": {
+        "all": {
+          "Name": "Snížení krytu (vše)",
+          "Hint": "Útočný příznak: Snižuje kryt cíle pro útoky i efekty záchran."
+        },
+        "attack": {
+          "Name": "Snížení krytu (útoky)",
+          "Hint": "Útočný příznak: Snižuje kryt cíle pouze pro útoky."
+        },
+        "save": {
+          "Name": "Snížení krytu (záchrany)",
+          "Hint": "Útočný příznak: Snižuje kryt cíle pouze pro efekty záchran."
+        }
       }
     }
   }
